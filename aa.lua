@@ -89,6 +89,11 @@ FOVCircle.Radius = Script.FOV.Circle.Radius
 FOVCircle.Filled = Script.FOV.Circle.Filled
 FOVCircle.Position = Vector2.new(playerCamera.ViewportSize.X / 2, playerCamera.ViewportSize.Y / 2)
 
+--> Script Execution | OnTeleport Function <--
+player.OnTeleport:Connect(function(State)
+    queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/TheRealXORA/Test/main/aa.lua", true))()')
+end)
+
 --> Function To Handle LocalPlayer Respawns <--
 player.CharacterAdded:Connect(function(Character)
     playerCharacter = Character
