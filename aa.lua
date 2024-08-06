@@ -89,13 +89,6 @@ FOVCircle.Radius = Script.FOV.Circle.Radius
 FOVCircle.Filled = Script.FOV.Circle.Filled
 FOVCircle.Position = Vector2.new(playerCamera.ViewportSize.X / 2, playerCamera.ViewportSize.Y / 2)
 
-local queueteleport = (syn and syn.queue_on_teleport) or queue_on_teleport or (fluxus and fluxus.queue_on_teleport)
-player.OnTeleport:Connect(function(State)
-    if State == Enum.TeleportState.Started and queueteleport then
-        queueteleport("")
-    end
-end)
-
 --> Function To Handle LocalPlayer Respawns <--
 player.CharacterAdded:Connect(function(Character)
     playerCharacter = Character
