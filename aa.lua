@@ -1,3 +1,13 @@
+--> Hooks __index | HookMetaMethod Function <--
+local OriginalIndex, Workspace, playerCamera = nil, Game:GetService("Workspace"), Workspace.CurrentCamera
+
+OriginalIndex = hookmetamethod(Game, "__index", newcclosure(function(Instance, Property)
+    if Instance == playerCamera and Property == "CameraType" then
+        return Enum.CameraType.Custom
+    end
+    return OriginalIndex(Instance, Property)
+end))
+
 --> Services | Variables <--
 local Workspace = Game:GetService("Workspace")
 local RunService = Game:GetService("RunService")
